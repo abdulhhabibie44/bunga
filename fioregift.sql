@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2019 at 05:39 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Waktu pembuatan: 09 Okt 2019 pada 14.33
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hak_akses`
+-- Struktur dari tabel `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -36,7 +36,7 @@ CREATE TABLE `hak_akses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kategori_produk`
+-- Struktur dari tabel `tb_kategori_produk`
 --
 
 CREATE TABLE `tb_kategori_produk` (
@@ -44,24 +44,32 @@ CREATE TABLE `tb_kategori_produk` (
   `nama_kategori` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_kategori_produk`
+--
+
+INSERT INTO `tb_kategori_produk` (`id_kategori`, `nama_kategori`) VALUES
+(1, 'Bunga Indoraa');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_produk`
+-- Struktur dari tabel `tb_produk`
 --
 
 CREATE TABLE `tb_produk` (
   `id_produk` int(5) NOT NULL,
   `id_kategori` int(5) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
-  `harga_jual` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `harga_produk` varchar(100) NOT NULL,
+  `deskripsi_produk` text NOT NULL,
+  `gambar_produk` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -78,7 +86,7 @@ CREATE TABLE `tb_user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -105,65 +113,65 @@ CREATE TABLE `transaksi` (
 --
 
 --
--- Indexes for table `hak_akses`
+-- Indeks untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id_akses`);
 
 --
--- Indexes for table `tb_kategori_produk`
+-- Indeks untuk tabel `tb_kategori_produk`
 --
 ALTER TABLE `tb_kategori_produk`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tb_produk`
+-- Indeks untuk tabel `tb_produk`
 --
 ALTER TABLE `tb_produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `hak_akses`
+-- AUTO_INCREMENT untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `id_akses` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_kategori_produk`
+-- AUTO_INCREMENT untuk tabel `tb_kategori_produk`
 --
 ALTER TABLE `tb_kategori_produk`
-  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_produk`
+-- AUTO_INCREMENT untuk tabel `tb_produk`
 --
 ALTER TABLE `tb_produk`
   MODIFY `id_produk` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT;
