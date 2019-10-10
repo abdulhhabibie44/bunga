@@ -18,7 +18,7 @@
                                 <form class="forms-sample" action="<?php echo base_url('Produk/tambahdata') ?>" method="post">
                                     <div class="form-group">
                                         <label for="exampleInputName1">Nama Produk</label>
-                                        <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Produk" autocomplete="off">
+                                        <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName1">Kategori Produk</label>
