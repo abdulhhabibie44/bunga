@@ -15,7 +15,7 @@
                                 <p class="card-description">
                                     Form Tambah Produk
                                 </p>
-                                <form class="forms-sample" action="<?php echo base_url('Produk/tambahdata') ?>" method="post">
+                                <form class="forms-sample" action="<?php echo base_url('Produk/tambahdata') ?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="exampleInputName1">Nama Produk</label>
                                         <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk" autocomplete="off">
@@ -41,11 +41,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName1">Gambar</label>
-                                        <input type="file" name="gambar_produk" class="file-upload-default">
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Gambar Produk">
-                                            <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        <div class="input-group input-file" name="Fichier1">
+                                            <input type="text" class="form-control" placeholder='Pilih Foto...' />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary btn-choose" type="button">Cari</button>
                                             </span>
                                         </div>
                                     </div>

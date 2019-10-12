@@ -32,8 +32,8 @@ class Produk extends CI_Controller
      */
     public function index()
     {
-        // $paket['array'] = $this->mdl_kategori->ambildata();
-        $this->load->view('produk');
+        $paket['array'] = $this->mdl_produk->ambildata();
+        $this->load->view('produk', $paket);
     }
 
     public function tambahdata()
@@ -50,29 +50,29 @@ class Produk extends CI_Controller
             $this->load->view('vtambah_produk', $data);
         } else {
             $send['id_produk'] = '';
-            // $send['id_kategori'] = $this->input->post('kategori_produk');
+            $send['id_kategori'] = $this->input->post('kategori_produk');
             $send['nama_produk'] = $this->input->post('nama_produk');
             $send['harga_produk'] = $this->input->post('harga');
             $send['deskripsi_produk'] = $this->input->post('deskripsi');
             // $send['id_kategori'] = $this->input->post('id_kategori');
 
-            if ($_FILES["gambar_produk"]["name"] != "") {
-                $config['upload_path']          = './produk/';
+            if ($_FILES["nama_foto"]["name"] != "") {
+                $config['upload_path']          = './upload/produk/';
                 $config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
-                $config['max_size']             = 3000;
+                $config['max_size']             = 5000;
                 $config['file_name'] = "Produk_" . "_" . time();
                 // $config['max_width']            = 1024;
                 // $config['max_height']           = 768;
 
                 $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('gambar_produk')) {
+                if ($this->upload->do_upload('nama_foto')) {
 
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('msg', $error);
 
                     $data = $this->upload->data();
-                    $send['gambar_produk'] = $data['file_name'];
+                    $send['nama_foto'] = $data['file_name'];
 
                     $kembalian['jumlah'] = $this->mdl_produk->tambahdata($send);
 

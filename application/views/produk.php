@@ -32,20 +32,27 @@
                                         <tbody>
                                             <tr>
                                                 <?php $no = 1;
-                                                // foreach ($array as $key) { 
-                                                ?>
-                                                <td><?php echo $no++ ?></td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a href="#" class="btn btn-sm btn-dark mdi mdi-pencil"></a>
-                                                        <a href="#" class="btn btn-sm btn-danger mdi mdi-delete"></a>
-                                                    </div>
-                                                </td>
+                                                foreach ($array as $key) {
+                                                    $queryKat = $this->db->query("SELECT * FROM tb_kategori_produk");
+                                                    $idKat = $key['id_kategori'];
+                                                    foreach ($queryKat->result() as $keyRevUkm) {
+                                                        if ($keyRevUkm->id_kategori == $idKat) {
+                                                            $kat = $keyRevUkm->nama_kategori;
+                                                        }
+                                                    } ?>
+                                                    <td><?php echo $no++ ?></td>
+                                                    <td><?php echo $key['nama_produk'] ?> </td>
+                                                    <td><?php echo $kat ?></td>
+                                                    <td><?php echo $key['harga_produk'] ?></td>
+                                                    <td><?php echo $key['deskripsi_produk'] ?></td>
+                                                    <td><img class="img23" src="<?php echo ($key['nama_foto'] != '' ? base_url('./upload/produk/' . $key['nama_foto']) : base_url('./upload/nama_foto/img_defautl.jpg')); ?>" alt="Foto Produk"></td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-sm btn-dark mdi mdi-pencil"></a>
+                                                            <a href="#" class="btn btn-sm btn-danger mdi mdi-delete"></a>
+                                                        </div>
+                                                    </td>
+                                                <?php } ?>
                                             </tr>
 
                                         </tbody>

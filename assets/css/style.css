@@ -10832,6 +10832,12 @@ fieldset:disabled a.btn {
   border-color: #4d83ff;
 }
 
+.img23 {
+			width: 80% !important;
+			height: 50% !important;
+      border-radius: 0% !important;
+		}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #2768ff;
