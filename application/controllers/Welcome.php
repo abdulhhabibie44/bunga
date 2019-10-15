@@ -1,7 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
+	public function __construct() //MEMPERSIAPKAN
+	{
+		parent::__construct();
+		$this->load->helper('url', 'form');
+		if ($this->session->userdata('masuk') == FALSE) {
+			redirect('Login', 'refresh');
+		}
+	}
 
 	/**
 	 * Index Page for this controller.

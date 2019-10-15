@@ -10,9 +10,9 @@ class Produk extends CI_Controller
         $this->load->model('mdl_produk');
         $this->load->library('form_validation');
         $this->load->database();
-        // if ($this->session->userdata('masuk') == FALSE) {
-        //     redirect('Admin/Login', 'refresh');
-        // }
+        if ($this->session->userdata('masuk') == FALSE) {
+            redirect('Login', 'refresh');
+        }
     }
 
     /**

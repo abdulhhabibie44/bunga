@@ -10,9 +10,9 @@ class Kategori extends CI_Controller
         $this->load->model('mdl_kategori');
         $this->load->library('form_validation');
         $this->load->database();
-        // if ($this->session->userdata('masuk') == FALSE) {
-        //     redirect('Admin/Login', 'refresh');
-        // }
+        if ($this->session->userdata('masuk') == FALSE) {
+            redirect('Admin/Login', 'refresh');
+        }
     }
 
     /**
