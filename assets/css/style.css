@@ -1,63 +1,12 @@
-/*------------------------------------------------------------------
- [Master Stylesheet]
+@font-face {
+     font-family: "Bosk";
+     src: url('../fonts/Bosk.ttf');
+     }
 
-  Project:	Majestic Admin
-  Version:	1.1.0
--------------------------------------------------------------------*/
-/*-------------------------------------------------------------------
-  ===== Table of Contents =====
+.fioreFont{
+  font-family: Bosk;
+}
 
-  * Bootstrap functions
-  * Bootstrap variables
-  * Template variables
-  * SCSS Compass Functions
-  * Boostrap Main SCSS
-  * Template mixins
-    + Animation Mixins
-    + Button Mixins
-    + Miscellaneous Mixins
-    + Cards Mixins
-    + Color Functions Mixins
-    + Badge Mixins
-    + Blockquote Mixins
-    
-  * Core Styles
-    + Reset Styles
-    + Fonts
-    + Functions
-    + Backgrounds
-    + Typography
-    + Miscellaneous
-    + Footer
-    + Utilities
-    + Demo styles
-  * Components
-    + Buttons
-    + Badges
-    + Bootstrap Progress
-    + Cards
-    + Checkboxes and Radios
-    + Dropdowns
-    + Forms
-    + Icons
-    + Lists
-    + Tables
-  * Plugin overrides
-    + Data-tables  
-  * Landing screens
-    + Auth
-  * Layout
-    + Vertical wrapper
-    + Sidebar
-    + Navbar
-    + Layouts
--------------------------------------------------------------------*/
-/*-------------------------------------------------------------------*/
-/* === Import Bootstrap functions and variables === */
-/*-------------------------------------------------------------------*/
-/* === Import template variables === */
-/*-------------------------------------------------------------------*/
-/* === SCSS Compass Functions === */
 @-moz-keyframes flash {
   0% {
     opacity: 1;
@@ -21897,3 +21846,171 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+/*MANUAL*/
+
+
+.logo_front{
+  margin: 7% 0 0 0;
+}
+ul{
+  text-align: right !important;
+  margin: 5% 0 0 0;
+}
+li {
+  display: inline;
+  margin: 0 4% 0 0;
+}
+.judul_fiore{
+  margin: 30% 0 0 0;
+  padding: 0 0 4% 0;
+  font-size: 410%;
+  color: #ff79b0;
+  font-family: Bosk;
+}
+.back1{
+  background-image: url("../images/bg_1b.jpg");
+  padding-bottom: 16%;
+}
+.burs{
+   font-family: Bosk; 
+   color: #ff79b0;
+   font-size: 410%;
+}
+.sub_judul{
+  margin: 0 0 0 0.6%;
+}
+.heSpace{
+  margin-bottom: 1%;
+}
+.sub_subs{
+   font-family: Bosk;
+   font-size: 125%;
+   color: #5f8b3c; 
+}
+.recom{
+     font-family: Bosk;
+     font-size: 207%;
+     margin-top: 30%;
+     color: #504f45;
+}
+.catalog_front{
+  width: 90%;
+}
+
+.image_ca {
+  opacity: 1;
+  display: block;
+  width: 95.7%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle_ca {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.misa:hover .image_ca2 {
+  opacity: 0.3;
+}
+
+.misa:hover .middle_ca2 {
+  opacity: 1;
+}
+
+.image_ca2 {
+  opacity: 1;
+  display: block;
+  width: 95.7%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle_ca2 {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.misa2:hover .image_ca2 {
+  opacity: 0.3;
+}
+
+.misa2:hover .middle_ca2 {
+  opacity: 1;
+}
+
+
+
+
+
+.btn-core{
+  background: #3f5c23;
+  color: #ffffff;
+}
+.btn-core:hover{
+  background: #27ae60 !important;
+  color: #ffffff !important;
+}
+.cards{
+  border-radius: 10%;
+}
+footer{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 10%;
+  background-color: #f3f3f3; 
+}
+.foot_cash{
+  font-size: 148%;
+}
+.sumFoot{
+  font-size: 112%;
+}
+.back2{
+  background-color: #f3f3f3; 
+  margin-top: 11%;
+}
+.back3{
+  background-color: #f3f3f3; 
+  margin-top: 3%;
+}
+.foot_mid{
+  font-size: 190%;
+  margin-top: 25%;
+  color: #504f45;
+ }
+.foot_mid2{
+  font-size: 190%;
+  margin-top: 30%;
+  color: #504f45;
+ }
+ .title_produk{
+  text-align: center;
+  margin-top: 15%;
+  font-size: 260%;
+  margin-bottom: 15%;
+  color: #504f45;
+ }
+ .link_sub{
+  text-decoration: none;
+  color: #504f45;
+ }
+ .link_sub:hover{
+  text-decoration: none;
+  color: #504f45;
+ }

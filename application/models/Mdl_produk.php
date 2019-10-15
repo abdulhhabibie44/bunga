@@ -27,6 +27,11 @@ class Mdl_produk extends CI_Model
         $this->db->insert('tb_produk', $paket);
         return $this->db->affected_rows();
     }
+    public function tambahTransaksi($paket)
+    {
+        $this->db->insert('transaksi', $paket);
+        return $this->db->affected_rows();
+    }
 
     public function delete_data($where, $table)
     {
