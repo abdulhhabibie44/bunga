@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2019 at 11:30 PM
+-- Generation Time: Oct 16, 2019 at 12:59 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -92,10 +92,17 @@ CREATE TABLE `tb_user` (
   `alamat` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telp` varchar(100) NOT NULL,
-  `username` int(200) NOT NULL,
+  `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `id_akses` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_user`
+--
+
+INSERT INTO `tb_user` (`id_user`, `nama`, `alamat`, `email`, `telp`, `username`, `password`, `id_akses`) VALUES
+(1, 'Teguh', 'Malang', 'teguh@gmail.com', '088753463473', 'teguh', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -119,8 +126,18 @@ CREATE TABLE `transaksi` (
   `jml_produk_2` int(5) NOT NULL,
   `jml_produk_3` int(5) NOT NULL,
   `jml_produk_4` int(5) NOT NULL,
-  `jml_produk_5` int(5) NOT NULL
+  `jml_produk_5` int(5) NOT NULL,
+  `nama_pemesan` varchar(100) NOT NULL,
+  `cp` varchar(50) NOT NULL,
+  `tujuan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `tanggal_pesan`, `bukti_tf`, `status_validasi`, `tanggal_validasi`, `id_produk_1`, `id_produk_2`, `id_produk_3`, `id_produk_4`, `id_produk_5`, `jml_produk_1`, `jml_produk_2`, `jml_produk_3`, `jml_produk_4`, `jml_produk_5`, `nama_pemesan`, `cp`, `tujuan`) VALUES
+(1, 0, '', '', '', '', 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 'Nirwan', '0882147483647', 'Malang');
 
 --
 -- Indexes for dumped tables
@@ -182,13 +199,13 @@ ALTER TABLE `tb_produk`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

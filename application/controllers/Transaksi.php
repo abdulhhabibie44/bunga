@@ -16,33 +16,34 @@ class Transaksi extends CI_Controller {
 
 	public function proses($idProduk)
 	{
+        $this->session->set_userdata('produk',$idProduk);        
         $data['idProduk'] = $idProduk;
 		$this->load->view('front/formTransaksi',$data);
 	}
 
-	public function transaksi()
+	public function transaksi($idProduk)
 	{
-        $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'trim|required');
-        // $this->form_validation->set_rules('kategori_produk', 'Kategori Porudk', 'trim|required');
-        $this->form_validation->set_rules('harga', 'Harga', 'trim|required');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
-        // $value['id_kategori'] = $this->input->post('id_kategori');
+        $this->form_validation->set_rules('nama_pemesan', 'Nama Produk', 'trim|required');
+        $this->form_validation->set_rules('tujuan_pengiriman', 'Harga', 'trim|required');
+        $this->form_validation->set_rules('jumlah', 'Deskripsi', 'trim|required');
+        $this->form_validation->set_rules('cp', 'Deskripsi', 'trim|required');
 
 
         if ($this->form_validation->run() == FALSE) {
-            $data['msg_error'] = "Silahkan isi semua kolom";
-            $this->load->view('vtambah_produk', $data);
+            $data['idProduk'] = $idProduk;
+            $this->load->view('front/formTransaksi', $data);
         } else {
             $send['id_transaksi'] = '';
-            // $send['id_pesan'] = '';
-            // $send['id_validasi'] = '';
+            // $send['tgl_pesan'] = '';
+            // $send['tgl_validasi'] = '';
+            $send['cp'] = $this->input->post('cp');
             $send['nama_pemesan'] = $this->input->post('nama_pemesan');
-            $send['tujuan_pengiriman'] = $this->input->post('tujuan_pengiriman');
-            $send['id_produk'] = $this->input->post('id_produk');
-            $send['jumlah'] = $this->input->post('jumlah');
+            $send['tujuan'] = $this->input->post('tujuan_pengiriman');
+            $send['id_produk_1'] = $this->input->post('id_produk');
+            $send['jml_produk_1'] = $this->input->post('jumlah');
             // $send['id_kategori'] = $this->input->post('id_kategori');
 
-            // if ($_FILES["nama_foto"]["name"] != "") {
+            // if ($_FILES["bukti_transfer"]["name"] != "") {
             //     $config['upload_path']          = './upload/produk/';
             //     $config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
             //     $config['max_size']             = 5000;
@@ -52,13 +53,13 @@ class Transaksi extends CI_Controller {
 
             //     $this->load->library('upload', $config);
 
-            //     if ($this->upload->do_upload('nama_foto')) {
+            //     if ($this->upload->do_upload('bukti_transfer')) {
 
             //         $error = array('error' => $this->upload->display_errors());
             //         $this->session->set_flashdata('msg', $error);
 
             //         $data = $this->upload->data();
-            //         $send['nama_foto'] = $data['file_name'];
+            //         $send['bukti_transfer'] = $data['file_name'];
 
                     $kembalian['jumlah'] = $this->mdl_produk->tambahTransaksi($send);
 
@@ -75,7 +76,7 @@ class Transaksi extends CI_Controller {
 
                     // $this->load->view('produk', $kembalian);
                     $this->session->set_flashdata('msg', 'Transaksi berhasil');
-                    redirect('Produk');
+                    redirect('Produk_user');
                 // }
             // }
         }

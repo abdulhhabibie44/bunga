@@ -25,45 +25,63 @@
 			
 		</div>
                    <div class="col-6 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card" style="margin-top: 10%;">
                             <div class="card-body">
                                 <center><p style="font-size: 190%;" class="card-title">TRANSAKSI</p></center>
                                 <p class="card-description">
                                     Form Tambah Transaksi
                                 </p>
-                                <form class="forms-sample" action="<?php echo base_url('Produk/tambahdata') ?>" method="post" enctype="multipart/form-data">
+                                <?php
+							        $id_data=$this->session->userdata('produk');
+                                 ?>
+                                <form class="forms-sample" action="<?php echo base_url('Transaksi/transaksi/'.$id_data) ?>" method="post" enctype="multipart/form-data">
+                                	<?php
+                                		$queryKat = $this->db->query("SELECT * FROM tb_produk");
+                                                    $idKat = $idProduk;
+                                                    foreach ($queryKat->result() as $keyQuery) {
+                                                        if ($keyQuery->id_produk == $idKat) {
+                                                            $kat = $keyQuery->nama_produk;
+                                                        }
+                                                    }
+                                	?>
+
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Nama Produk</label>
-                                        <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk" autocomplete="off">
+                                        <label for="namaProduk">Nama Produk</label>
+                                        <input type="hidden" value="<?php echo $idProduk; ?>" class="form-control" name="id_produk" placeholder="Nama Produk" autocomplete="off">
+                                        <input type="text" disabled="disabled" value="<?php echo $kat; ?>" class="form-control" name="nama_produk" placeholder="Nama Produk" autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Kategori Produk</label>
-                                        <select name="kategori_produk" class="form-control">
-                                            <option value="zero">--== Pilih Kategori ==--</option>
-                                            <?php
-                                            $kat = $this->db->query("SELECT * FROM tb_kategori_produk");
-                                            foreach ($kat->result() as $row_kat) { ?>
-                                                <option value="<?php echo $row_kat->id_kategori ?>"><?php echo $row_kat->nama_kategori; ?></option>
-                                            <?php } ?>
+                                        <label for="jumlah">Jumlah</label>
+                                        <select name="jumlah" class="form-control">
+                                            <option value="zero">--== Jumlah barang ==--</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Harga</label>
-                                        <input type="text" class="form-control" name="harga" placeholder="Harga Produk" autocomplete="off">
+                                        <label for="">Nama Pemesan</label>
+                                        <input type="text" class="form-control" name="nama_pemesan" placeholder="Nama Pemesan" autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Deskripsi</label>
-                                        <textarea class="form-control" rows="4" name="deskripsi"></textarea>
+                                        <label for="">CP</label>
+                                        <input type="text" class="form-control" name="cp" placeholder="Nomor yang dapat dihubungi" autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Gambar</label>
-                                        <div class="input-group input-file" name="Fichier1">
+                                        <label for="tujuan_pengirimans">Tujuan Pengiriman</label>
+                                        <input type="text" class="form-control" name="tujuan_pengiriman" placeholder="Tujuan Pengiriman" autocomplete="off">
+                                    </div>
+<!--                                     <div class="form-group">
+                                        <label for="bukti_transfer">Bukti Transfer</label>
+                                        <div class="input-group input-file" name="bukti_transfer">
                                             <input type="text" class="form-control" placeholder='Pilih Foto...' />
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary btn-choose" type="button">Cari</button>
                                             </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <button type="submit" class="btn btn-primary mr-2">Kirim</button>
                                     <button class="btn btn-light">Batal</button>
                                 </form>

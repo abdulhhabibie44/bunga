@@ -29,6 +29,7 @@
 			<ul>
 				<li><a class="link_sub" href="<?php echo base_url('Home');?>">BERANDA</a></li>
 				<li><a class="link_sub" href="<?php echo base_url('Produk_user');?>">PRODUK</a></li>	
+				<li><a class="link_sub" href="<?php echo base_url('Login');?>">LOGIN</a></li>			
 			</ul>
 		</div>	
 	</div>
@@ -47,48 +48,26 @@
 	<div class="row">
 
     <?php $no = 1;
-    foreach ($array as $key) {	?>
+    foreach ($array as $key) { ?>
 
 		<div class="col-lg-3">
-			<div class="cards">
-				<center><img style="width: 100%;" src="<?php echo ($key['nama_foto'] != '' ? base_url('./upload/produk/' . $key['nama_foto']) : base_url('./upload/nama_foto/img_defautl.jpg')); ?>"></center>
-				<p align="center" class="title_product">Razor X Alpha</p>
-				<p align="center" class="title_product">250.000 IDR</p>
-				<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></center>
-			</div>	
+
+					<center><img style="width: 100%;" src="<?php echo ($key['nama_foto'] != '' ? base_url('./upload/produk/' . $key['nama_foto']) : base_url('./upload/nama_foto/img_defautl.jpg')); ?>"></center>
+<!-- 					<p align="center" class="title_product">Razor X Alpha</p>
+					<p align="center" class="title_product">250.000 IDR</p> -->
+					<center><a style="margin-top: 6%;" href="<?php echo base_url('Transaksi/transaksi/'.$key['id_produk']);  ?>" class="btn btn-success"><i class="fa fa-shopping-cart" style="font-size:17px"></i> PESAN SEKARANG</a></center>
+<!-- 					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></center> -->
+
 		</div>
+		<?php 
+		if ($no==4 || $no==8 || $no==12 || $no==16 || $no==20) { ?>
+			<div style="margin-bottom: 34%;">
+			</div>
+		<?php }
 
-	<?php } ?>
+		$no++; } ?>
 
-
-
-
-
-<!-- 		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p3.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div>
-		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p4.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div>
-		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p6.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div> -->		
-	</div>
+</div>
 <div class="row" style="margin-top: 6%;">
 		<div class="col-lg-3">
 

@@ -30,6 +30,7 @@
 			<ul>
 				<li><a class="link_sub" href="<?php echo base_url('Home');?>">BERANDA</a></li>
 				<li><a class="link_sub" href="<?php echo base_url('Produk_user');?>">PRODUK</a></li>						
+				<li><a class="link_sub" href="<?php echo base_url('Login');?>">LOGIN</a></li>						
 			</ul>
 		</div>	
 	</div>
@@ -74,7 +75,7 @@
 					<center><img style="width: 100%;" src="<?php echo ($key['nama_foto'] != '' ? base_url('./upload/produk/' . $key['nama_foto']) : base_url('./upload/nama_foto/img_defautl.jpg')); ?>"></center>
 <!-- 					<p align="center" class="title_product">Razor X Alpha</p>
 					<p align="center" class="title_product">250.000 IDR</p> -->
-					<center><a style="margin-top: 6%;" href="" class="btn btn-success"><i class="fa fa-shopping-cart" style="font-size:17px"></i> PESAN SEKARANG</a></center>
+					<center><a style="margin-top: 6%;" href="<?php echo base_url('Transaksi/transaksi/'.$key['id_produk']);  ?>" class="btn btn-success"><i class="fa fa-shopping-cart" style="font-size:17px"></i> PESAN SEKARANG</a></center>
 <!-- 					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></center> -->
 
 		</div>
