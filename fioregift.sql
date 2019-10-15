@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Okt 2019 pada 14.33
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Oct 15, 2019 at 11:30 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hak_akses`
+-- Table structure for table `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -36,7 +36,7 @@ CREATE TABLE `hak_akses` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kategori_produk`
+-- Table structure for table `tb_kategori_produk`
 --
 
 CREATE TABLE `tb_kategori_produk` (
@@ -45,16 +45,16 @@ CREATE TABLE `tb_kategori_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kategori_produk`
+-- Dumping data for table `tb_kategori_produk`
 --
 
 INSERT INTO `tb_kategori_produk` (`id_kategori`, `nama_kategori`) VALUES
-(1, 'Bunga Indoraa');
+(1, 'Bunga jajanan');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_produk`
+-- Table structure for table `tb_produk`
 --
 
 CREATE TABLE `tb_produk` (
@@ -63,13 +63,27 @@ CREATE TABLE `tb_produk` (
   `nama_produk` varchar(100) NOT NULL,
   `harga_produk` varchar(100) NOT NULL,
   `deskripsi_produk` text NOT NULL,
-  `gambar_produk` varchar(100) NOT NULL
+  `nama_foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_produk`
+--
+
+INSERT INTO `tb_produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `nama_foto`) VALUES
+(2, 1, 'Box Gift', '15000', 'Jajan lebih ke Delfi', 'Produk__1571144386.jpg'),
+(3, 1, 'Ballon Bouquet', '35000', 'Terbang nih', 'Produk__1571144452.jpg'),
+(4, 1, 'Parcel Bouquet', '40000', 'Bagus oee', 'Produk__1571144790.jpg'),
+(5, 1, 'Fabric Bouquet', '70000', 'Indah cuy', 'Produk__1571144860.jpg'),
+(6, 1, 'Flower Bouquet', '90000', 'Pilih yang mana', 'Produk__1571144904.jpg'),
+(7, 1, 'Snack Bouquet', '168000', 'Kece abis', 'Produk__1571144938.jpg'),
+(8, 1, 'Paper Bouquet', '120000', 'Ihir', 'Produk__1571144972.jpg'),
+(9, 1, 'Tanggo Bouquet', '140000', 'Banyak tanggo', 'Produk__1571145055.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -86,7 +100,7 @@ CREATE TABLE `tb_user` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -113,65 +127,65 @@ CREATE TABLE `transaksi` (
 --
 
 --
--- Indeks untuk tabel `hak_akses`
+-- Indexes for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id_akses`);
 
 --
--- Indeks untuk tabel `tb_kategori_produk`
+-- Indexes for table `tb_kategori_produk`
 --
 ALTER TABLE `tb_kategori_produk`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `tb_produk`
+-- Indexes for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `hak_akses`
+-- AUTO_INCREMENT for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `id_akses` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kategori_produk`
+-- AUTO_INCREMENT for table `tb_kategori_produk`
 --
 ALTER TABLE `tb_kategori_produk`
-  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_produk`
+-- AUTO_INCREMENT for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
-  MODIFY `id_produk` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT;
