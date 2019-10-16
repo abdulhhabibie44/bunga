@@ -32,7 +32,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="<?php echo base_url('Data_penjualan') ?>">
                 <i class=" mdi mdi-chart-areaspline menu-icon"></i>
                 <span class="menu-title">Data Penjualan</span>
             </a>

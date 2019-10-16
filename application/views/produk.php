@@ -52,8 +52,8 @@
                                                             <a href="#" class="btn btn-sm btn-danger mdi mdi-delete"></a>
                                                         </div>
                                                     </td>
-                                                <?php } ?>
                                             </tr>
+                                        <?php } ?>
 
                                         </tbody>
                                     </table>

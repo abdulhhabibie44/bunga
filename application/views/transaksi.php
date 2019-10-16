@@ -46,8 +46,8 @@
                                                     <td>
                                                         <a href="<?php echo base_url('Data_penjualan/detail/' . $key['id_transaksi']) ?>" class="btn btn-sm btn-primary mdi mdi-eye" title="Detail Transaksi"></a>
                                                     </td>
-                                                <?php } ?>
                                             </tr>
+                                        <?php } ?>
 
                                         </tbody>
                                     </table>
