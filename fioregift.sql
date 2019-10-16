@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2019 at 12:59 AM
+-- Generation Time: Oct 16, 2019 at 02:52 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -113,7 +113,7 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `alamat`, `email`, `telp`, `username`,
 CREATE TABLE `transaksi` (
   `id_transaksi` int(5) NOT NULL,
   `id_user` int(5) NOT NULL,
-  `tanggal_pesan` varchar(100) NOT NULL,
+  `tanggal_pesan` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `bukti_tf` varchar(100) NOT NULL,
   `status_validasi` varchar(100) NOT NULL,
   `tanggal_validasi` varchar(100) NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `tanggal_pesan`, `bukti_tf`, `status_validasi`, `tanggal_validasi`, `id_produk_1`, `id_produk_2`, `id_produk_3`, `id_produk_4`, `id_produk_5`, `jml_produk_1`, `jml_produk_2`, `jml_produk_3`, `jml_produk_4`, `jml_produk_5`, `nama_pemesan`, `cp`, `tujuan`) VALUES
-(1, 0, '', '', '', '', 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 'Nirwan', '0882147483647', 'Malang');
+(1, 0, '2019-10-16 00:51:05.933108', '', 'VALID', '', 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 'Nirwan', '0882147483647', 'Malang');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +187,7 @@ ALTER TABLE `hak_akses`
 -- AUTO_INCREMENT for table `tb_kategori_produk`
 --
 ALTER TABLE `tb_kategori_produk`
-  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_produk`
