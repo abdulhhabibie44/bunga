@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Transaksi extends CI_Controller {
+class Transaksi extends CI_Controller
+{
     public function __construct() //MEMPERSIAPKAN
     {
         parent::__construct();
@@ -14,15 +15,15 @@ class Transaksi extends CI_Controller {
         // }
     }
 
-	public function proses($idProduk)
-	{
-        $this->session->set_userdata('produk',$idProduk);        
+    public function proses($idProduk)
+    {
+        $this->session->set_userdata('produk', $idProduk);
         $data['idProduk'] = $idProduk;
-		$this->load->view('front/formTransaksi',$data);
-	}
+        $this->load->view('front/formTransaksi', $data);
+    }
 
-	public function transaksi($idProduk)
-	{
+    public function transaksi($idProduk)
+    {
         // $revisi_ukm=$this->session->userdata('ses_ukm');
         $this->form_validation->set_rules('nama_pemesan', 'Nama Produk', 'trim|required');
         $this->form_validation->set_rules('tujuan_pengiriman', 'Harga', 'trim|required');
@@ -45,8 +46,8 @@ class Transaksi extends CI_Controller {
             $send['status_validasi'] = "BELUM";
             // $send['id_kategori'] = $this->input->post('id_kategori');
 
-            if ($_FILES["bukti_transfer"]["name"] != "") {
-                $config['upload_path']          = './upload/bukti/';
+            if ($_FILES["nama_foto"]["name"] != "") {
+                $config['upload_path']          = './upload/bukti_upload/';
                 $config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
                 $config['max_size']             = 5000;
                 $config['file_name'] = "Bukti_" . "_" . time();
@@ -55,7 +56,7 @@ class Transaksi extends CI_Controller {
 
                 $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('bukti_transfer')) {
+                if ($this->upload->do_upload('nama_foto')) {
 
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('msg', $error);
@@ -83,5 +84,5 @@ class Transaksi extends CI_Controller {
                 }
             }
         }
-	}
+    }
 }
