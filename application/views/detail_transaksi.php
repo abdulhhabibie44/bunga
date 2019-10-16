@@ -51,10 +51,6 @@
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <th>Nama Pemesan</th>
-                                                <td><?php echo $data[0]['nama_pemesan'] ?> </td>
-                                            </tr>
-                                            <tr>
                                                 <?php
                                                 foreach ($data as $key) {
                                                     $queryKat = $this->db->query("SELECT * FROM tb_produk");
@@ -80,7 +76,7 @@
                                                 <th>Jumlah Pesanan Produk 1</th>
                                                 <td><?php echo $data[0]['jml_produk_1'] ?></td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <?php
                                                 foreach ($data as $key) {
                                                     $queryKat = $this->db->query("SELECT * FROM tb_produk");
@@ -151,17 +147,13 @@
                                             <tr>
                                                 <th>Jumlah Pesanan Produk 5</th>
                                                 <td><?php echo $data[0]['jml_produk_5'] ?></td>
-                                            </tr>
-                                            <td>
-                                                <!-- <a href="<?php echo base_url('Detail' . $key['id_transkasi']) ?>" class="btn btn-sm btn-primary mdi mdi-eye" title="Detail Transaksi"></a> -->
-                                            </td>
-
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
