@@ -10,6 +10,12 @@ class Mdl_transaksi extends CI_Model
         $this->load->database();
     }
 
+    public function validasi($send)
+    {
+        $sql = "UPDATE transaksi SET status_validasi = ? WHERE id_transaksi = ?";
+        $query = $this->db->query($sql, array($send['status_validasi'], $send['id_transaksi']));
+    }
+
     public function ambildata()
     {
         $query = $this->db->query("SELECT * FROM transaksi");

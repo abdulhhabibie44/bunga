@@ -30,6 +30,22 @@
                                                 <th>Tujuan Kiriman</th>
                                                 <td><?php echo $data[0]['tujuan'] ?></td>
                                             </tr>
+                                            <tr>
+                                                                              
+<?php
+
+if ($data[0]['status_validasi']=="BELUM") { ?>
+        <th><a style="margin-top: 6%;" href="<?php echo base_url('Data_penjualan/validasi/1/'.$idUpdate);  ?>" class="btn btn-success"> VALIDASI</a></th>
+        <th><a style="margin-top: 6%;" href="<?php echo base_url('Data_penjualan/validasi/2/'.$idUpdate);  ?>" class="btn btn-danger"> TIDAK VALID</a></th>
+<?php }elseif ($data[0]['status_validasi']=="VALID") { ?>
+        <th><a style="margin-top: 6%; color: #ffffff;" class="btn btn-success"> VALID</a></th>
+<?php }else{ ?>
+        <th><a style="margin-top: 6%; color: #ffffff;" class="btn btn-danger"> TIDAK VALID</a></th>    
+<?php }
+
+
+?>
+                                            </tr>          
                                             <td>
                                                 <!-- <a href="<?php echo base_url('Detail' . $key['id_transkasi']) ?>" class="btn btn-sm btn-primary mdi mdi-eye" title="Detail Transaksi"></a> -->
                                             </td>

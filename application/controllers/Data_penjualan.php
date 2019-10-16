@@ -47,8 +47,22 @@ class Data_penjualan extends CI_Controller
 
     public function detail($id_update)
     {
+        $indexrow['idUpdate'] = $id_update;
         $indexrow['data'] = $this->mdl_transaksi->ambildata2($id_update);
         $this->load->view('detail_transaksi', $indexrow);
+    }
+    public function validasi($status,$id_update)
+    {
+        $send['id_transaksi'] = $id_update;
+
+        if ($status==1) {
+            $send['status_validasi'] = "VALID";                    
+        }else{
+            $send['status_validasi'] = "TIDAK";            
+        }
+
+        $indexrow['data'] = $this->mdl_transaksi->validasi($send);
+        redirect('Data_penjualan/detail/'.$id_update);
     }
 
     public function edit($id_update)
