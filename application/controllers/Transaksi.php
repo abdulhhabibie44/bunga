@@ -23,6 +23,7 @@ class Transaksi extends CI_Controller {
 
 	public function transaksi($idProduk)
 	{
+        // $revisi_ukm=$this->session->userdata('ses_ukm');
         $this->form_validation->set_rules('nama_pemesan', 'Nama Produk', 'trim|required');
         $this->form_validation->set_rules('tujuan_pengiriman', 'Harga', 'trim|required');
         $this->form_validation->set_rules('jumlah', 'Deskripsi', 'trim|required');
@@ -41,44 +42,46 @@ class Transaksi extends CI_Controller {
             $send['tujuan'] = $this->input->post('tujuan_pengiriman');
             $send['id_produk_1'] = $this->input->post('id_produk');
             $send['jml_produk_1'] = $this->input->post('jumlah');
+            $send['status_validasi'] = "BELUM";
             // $send['id_kategori'] = $this->input->post('id_kategori');
 
-            // if ($_FILES["bukti_transfer"]["name"] != "") {
-            //     $config['upload_path']          = './upload/produk/';
-            //     $config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
-            //     $config['max_size']             = 5000;
-            //     $config['file_name'] = "Produk_" . "_" . time();
-            //     // $config['max_width']            = 1024;
-            //     // $config['max_height']           = 768;
+            if ($_FILES["bukti_transfer"]["name"] != "") {
+                $config['upload_path']          = './upload/bukti/';
+                $config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
+                $config['max_size']             = 5000;
+                $config['file_name'] = "Bukti_" . "_" . time();
+                // $config['max_width']            = 1024;
+                // $config['max_height']           = 768;
 
-            //     $this->load->library('upload', $config);
+                $this->load->library('upload', $config);
 
-            //     if ($this->upload->do_upload('bukti_transfer')) {
+                if ($this->upload->do_upload('bukti_transfer')) {
 
-            //         $error = array('error' => $this->upload->display_errors());
-            //         $this->session->set_flashdata('msg', $error);
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->session->set_flashdata('msg', $error);
 
-            //         $data = $this->upload->data();
-            //         $send['bukti_transfer'] = $data['file_name'];
+                    $data = $this->upload->data();
+                    $send['bukti_tf'] = $data['file_name'];
+
 
                     $kembalian['jumlah'] = $this->mdl_produk->tambahTransaksi($send);
 
-            //         $kembalian['array'] = $this->mdl_produk->ambildata();
+                    // $kembalian['array'] = $this->mdl_produk->ambildata();
+                    // $this->load->view('produk', $kembalian);
 
-            //         $this->load->view('produk', $kembalian);
-            //         $this->session->set_flashdata('msg', 'Data berhasil ditambahkan');
-            //         redirect('Produk');
-                // } else {
-
+                    $this->session->set_flashdata('msg', 'Data berhasil');
+                    redirect('Produk_user');
+                } else {
+                    $datas['idProduk'] = $idProduk;
                     // $kembalian['jumlah'] = $this->mdl_produk->tambahdata($send);
 
                     // $kembalian['array'] = $this->mdl_produk->ambildata();
 
-                    // $this->load->view('produk', $kembalian);
                     $this->session->set_flashdata('msg', 'Transaksi berhasil');
-                    redirect('Produk_user');
-                // }
-            // }
+                    // redirect('Produk_user');
+                    $this->load->view('front/formTransaksi', $datas);
+                }
+            }
         }
 	}
 }

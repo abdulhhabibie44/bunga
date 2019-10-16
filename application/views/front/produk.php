@@ -66,44 +66,7 @@
 		<?php }
 
 		$no++; } ?>
-
 </div>
-<div class="row" style="margin-top: 6%;">
-		<div class="col-lg-3">
-
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p8.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></center>
-				</div>	
-
-		</div>
-		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p9.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div>
-		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p10.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div>
-		<div class="col-lg-3">
-				<div class="cards">
-					<center><img style="width: 100%;" src="<?php echo base_url('assets/images/p2.jpg'); ?>"></center>
-					<p align="center" class="title_product">Razor X Alpha</p>
-					<p align="center" class="title_product">250.000 IDR</p>
-					<center><input value="PESAN SEKARANG" type="button" data-toggle="modal" data-target="#myModal2" id="star_1" class="form-control btn-core"></i></center>
-				</div>
-		</div>		
-	</div>
 </div>
 
 <footer>

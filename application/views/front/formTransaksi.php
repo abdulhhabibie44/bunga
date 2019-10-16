@@ -21,6 +21,22 @@
 <body>
 <div class="container">
 	<div class="row">
+		<div class="col-lg-4">
+			<img class="logo_front" src="<?php echo base_url('assets/images/logo.svg') ?>" alt="logo" />
+		</div>	
+		<div class="col-lg-8">
+			<ul>
+				<li><a class="link_sub" href="<?php echo base_url('Home');?>">BERANDA</a></li>
+				<li><a class="link_sub" href="<?php echo base_url('Produk_user');?>">PRODUK</a></li>						
+				<li><a class="link_sub" href="<?php echo base_url('Login');?>">LOGIN</a></li>						
+			</ul>
+		</div>	
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
 		<div class="col-lg-3">
 			
 		</div>
@@ -32,9 +48,9 @@
                                     Form Tambah Transaksi
                                 </p>
                                 <?php
-							        $id_data=$this->session->userdata('produk');
+							        // $id_data=$this->session->userdata('produk');
                                  ?>
-                                <form class="forms-sample" action="<?php echo base_url('Transaksi/transaksi/'.$id_data) ?>" method="post" enctype="multipart/form-data">
+                                <form class="forms-sample" action="<?php echo base_url('Transaksi/transaksi/'.$idProduk) ?>" method="post" enctype="multipart/form-data">
                                 	<?php
                                 		$queryKat = $this->db->query("SELECT * FROM tb_produk");
                                                     $idKat = $idProduk;
@@ -73,15 +89,15 @@
                                         <label for="tujuan_pengirimans">Tujuan Pengiriman</label>
                                         <input type="text" class="form-control" name="tujuan_pengiriman" placeholder="Tujuan Pengiriman" autocomplete="off">
                                     </div>
-<!--                                     <div class="form-group">
-                                        <label for="bukti_transfer">Bukti Transfer</label>
+                                    <div class="form-group">
+                                        <label for="bukti_transfers">Bukti Transfer</label>
                                         <div class="input-group input-file" name="bukti_transfer">
                                             <input type="text" class="form-control" placeholder='Pilih Foto...' />
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary btn-choose" type="button">Cari</button>
                                             </span>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Kirim</button>
                                     <button class="btn btn-light">Batal</button>
                                 </form>
@@ -93,5 +109,32 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>
+<!-- container-scroller -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<p class="fioreFont foot_cash" style="margin-bottom: 9%;">Fioregift</p>
+				<p>Buka pukul 09.00 - 16.00<br>(Senin-Jumat)</p>
+				<p>Buka pukul 10.00 - 15.00<br>(Sabtu)</p>
+			</div>
+			<div class="col-lg-5">
+				<p class="fioreFont foot_cash" style="margin-bottom: 9%;">Kontak</p>
+				<p class="sumFoot"><i class="fa fa-whatsapp" style="font-size:23px"></i> +6289685496528</p>
+				<p class="sumFoot"><i class="fa fa-phone" style="font-size:23px"></i> 089685496528</p>		
+			</div>
+			<div class="col-lg-3">
+				<p class="fioreFont foot_cash" style="margin-bottom: 9%;">Lokasi</p>
+				<p>Jl. Arumba no.1 rt.rw/07.04<br>Tunggulwulung Lowokwaru, Malang<br>Kode pos 65146</p>				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<hr>
+				<p>copyright fioregift_2019</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<?php $this->load->view('footer') ?>
